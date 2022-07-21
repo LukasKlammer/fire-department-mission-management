@@ -26,3 +26,13 @@ app-root {
   border-radius: 4px;
   padding: 8px;
 }
+
+.add-button {
+  width: 200px;
+  border-radius: 24px;
+  mat-icon {
+    padding-right: 4px;
+  }
+}
+
+

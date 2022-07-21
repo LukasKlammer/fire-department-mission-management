@@ -17,6 +17,10 @@ import { CurrentMissionComponent } from './current-mission/current-mission.compo
 import { OperationsComponent } from './operations/operations.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { DialogAddMissionComponent } from './dialog-add-mission/dialog-add-mission.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MissionsComponent,
     DialogEditOperationComponent,
     CurrentMissionComponent,
-    OperationsComponent
+    OperationsComponent,
+    DialogAddMissionComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
-    DragDropModule
+    DragDropModule,
+    MatRadioModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

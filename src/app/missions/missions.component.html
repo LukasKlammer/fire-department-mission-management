@@ -1,1 +1,38 @@
-<p>missionscomponent works</p>
+<div class="missions-box bordered-box">
+  <button mat-raised-button class="add-button" color="warn" (click)="openDialog()">
+    <mat-icon fontIcon="add">add</mat-icon>
+    Mission erstellen
+  </button>
+  <div class="missions-category-box bordered-box">
+    <h2>Missionen der Feuerwehr Bruneck</h2>
+    <p>Eine Mission ist ein Ereignis, bei dem sehr viele zeitgleiche Einsätze eintreten. Beispiel: Sturm, Starkregen,
+      Hochwasser, Katastropheneinsatz. Eine Mission gilt als abgeschlossen, wenn alle einzelnen Einsätze abgearbeitet
+      wurden.</p>
+    <label id="example-radio-group-label">Wähle die gewünschte Mission aus:</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+      [(ngModel)]="selectedMission">
+      <mat-radio-button class="example-radio-button" *ngFor="let mission of missions" [value]="mission"
+        (click)="selectMission()">
+        {{mission.description}}, erstellt am {{mission.timestamp}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <button class="navigate-operations-button" *ngIf="isMissionSelected" mat-raised-button color="primary" [routerLink]="['/current-mission/']">
+      <mat-icon fontIcon="navigate">assistant_direction</mat-icon>
+      <mat-icon fontIcon="fire_truck">fire_truck</mat-icon>
+      zu den Einsätzen der Mission {{selectedMission.description}}, erstellt am {{selectedMission.timestamp}}
+    </button>
+
+    <!-- <mat-card>
+      <table>
+        <tr>
+          <td></td>
+          <td>Baum auf PKW</td>
+          <td>Amatnerstraße, Percha</td>
+          <td>Priorität hoch</td>
+          <td>Fahrzeuge: Voraus, Rüst, Tank 3</td>
+        </tr>
+      </table>
+    </mat-card> -->
+
+  </div>
+</div>

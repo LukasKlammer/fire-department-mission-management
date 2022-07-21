@@ -1,0 +1,24 @@
+.missions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.missions-category-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navigate-operations-button {
+  width: 600px;
+  mat-icon {
+    padding-right: 4px;
+  }
+}

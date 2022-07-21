@@ -1,6 +1,9 @@
 <div class="operations-box bordered-box">
-  <h2>Einsätze</h2>
-  <div class="mission-category-box bordered-box">
+  <button mat-raised-button class="add-button" color="primary">
+    <mat-icon fontIcon="add">add</mat-icon>
+    Einsatz erstellen
+  </button>
+  <div class="operations-category-box bordered-box">
     <h2>Offen</h2>
     <mat-card [ngStyle]="{'background-color': '#FFFF00'}">
       <table>
@@ -14,7 +17,7 @@
     </mat-card>
   </div>
 
-  <div class="mission-category-box bordered-box">
+  <div class="operations-category-box bordered-box">
     <h2>Läuft</h2>
     <mat-card [ngStyle]="{'background-color': '#FFFF00'}">
       <table>
@@ -48,7 +51,7 @@
     </mat-card>
   </div>
 
-  <div class="mission-category-box bordered-box">
+  <div class="operations-category-box bordered-box">
     <h2>Abgeschlossen</h2>
     <mat-card [ngStyle]="{'background-color': '#FF0000'}">
       <table>
