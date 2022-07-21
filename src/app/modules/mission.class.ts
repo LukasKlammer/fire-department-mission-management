@@ -8,10 +8,12 @@ export class Mission {
     this.timestamp = obj ? obj.timestamp : '';
   }
 
-  // public toJSON() {
+  // public toJSON() : string {
   //   return {
   //     description: this.description,
-  //     startDate: this.startDate,
+  //     timestamp: this.timestamp.toString(),
   //   }
   // }
+
+
 }

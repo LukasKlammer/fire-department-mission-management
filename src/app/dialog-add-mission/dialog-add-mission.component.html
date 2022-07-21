@@ -22,7 +22,7 @@
         <mat-label>Zeitstempel (wird automatisch generiert)</mat-label>
         <input
           disabled
-          value="{{europeanDate}}"
+          value="{{ mission.timestamp | date : 'dd.MM.y, HH:mm:ss' }}"
           matInput>
       </mat-form-field>
     </div>

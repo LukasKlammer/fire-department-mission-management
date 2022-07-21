@@ -18,11 +18,11 @@ export class MissionsComponent implements OnInit {
   missions: Mission[] = [
     {
       description: '1. Flächenlage',
-      timestamp: 1658393553,
+      timestamp: 1607110465663,
     },
     {
       description: '2. Flächenlage',
-      timestamp: 1658393529,
+      timestamp: 1607110465663,
     }];
 
   isMissionSelected:boolean = false;

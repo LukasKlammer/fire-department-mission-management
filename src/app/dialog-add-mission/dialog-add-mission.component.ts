@@ -12,14 +12,11 @@ export class DialogAddMissionComponent implements OnInit {
   isLoading: boolean = false;
   mission: Mission = new Mission();
   date: Date = new Date();
-  europeanDate: string = '';
 
   constructor(public dialogRef: MatDialogRef<DialogAddMissionComponent>) {
     this.mission.timestamp = this.date.getTime();
 
-
-    this.europeanDate = this.date.toLocaleDateString("en-US", { day: 'numeric' })+ "-"+ this.date.toLocaleDateString("en-US", { month: 'short' })+ "-" + this.date.toLocaleDateString("en-US", { year: 'numeric' });
-
+    // this.europeanDate = this.date.toLocaleDateString("en-US", { day: 'numeric' })+ "-"+ this.date.toLocaleDateString("en-US", { month: 'short' })+ "-" + this.date.toLocaleDateString("en-US", { year: 'numeric' }) + "   " + this.date.getHours() + ":" + this.date.getMinutes() + ":" + this.date.getSeconds() + " Uhr";
    }
 
   ngOnInit(): void {
@@ -27,8 +24,20 @@ export class DialogAddMissionComponent implements OnInit {
 
   public generateNewMission(ngForm: any) {
     if (ngForm.submitted && ngForm.form.valid) {
-      alert('neue Mission wird erstellt')
+      console.log('neue Mission wird erstellt: ', this.mission);
+      // console.log('Mission als JSON: ', this.mission.toJSON());
+
       // ins array pushen und speichern
+      // this.firestore
+      //   .collection('ff-bruneck')
+      //   .doc('asdfasdf') //missions document
+      //   .collection('missions')
+      //   .add(this.mission.toJSON())
+      //   .then((result: any) => {
+      //     console.log('Adding user finished: ' , result);
+      //     this.isLoading = false;
+      //     this.dialogRef.close();
+      //   })
     }
 
   }

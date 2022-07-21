@@ -13,26 +13,14 @@
       [(ngModel)]="selectedMission">
       <mat-radio-button class="example-radio-button" *ngFor="let mission of missions" [value]="mission"
         (click)="selectMission()">
-        {{mission.description}}, erstellt am {{mission.timestamp}}
+        {{mission.description}}, erstellt am {{ mission.timestamp | date : 'dd.MM.y, HH:mm:ss' }} Uhr
       </mat-radio-button>
     </mat-radio-group>
     <button class="navigate-operations-button" *ngIf="isMissionSelected" mat-raised-button color="primary" [routerLink]="['/current-mission/']">
       <mat-icon fontIcon="navigate">assistant_direction</mat-icon>
       <mat-icon fontIcon="fire_truck">fire_truck</mat-icon>
-      zu den Einsätzen der Mission {{selectedMission.description}}, erstellt am {{selectedMission.timestamp}}
+      zu den Einsätzen der Mission {{ selectedMission.description }}, erstellt am {{ selectedMission.timestamp | date : 'dd.MM.y, HH:mm:ss' }} Uhr
     </button>
-
-    <!-- <mat-card>
-      <table>
-        <tr>
-          <td></td>
-          <td>Baum auf PKW</td>
-          <td>Amatnerstraße, Percha</td>
-          <td>Priorität hoch</td>
-          <td>Fahrzeuge: Voraus, Rüst, Tank 3</td>
-        </tr>
-      </table>
-    </mat-card> -->
 
   </div>
 </div>
