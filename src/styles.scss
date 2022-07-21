@@ -8,6 +8,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #34414C;
   background-color: #FFFFFF;
 }
 
@@ -30,9 +31,6 @@ app-root {
 .add-button {
   width: 200px;
   border-radius: 24px;
-  mat-icon {
-    padding-right: 4px;
-  }
 }
 
 .dialog-container {
@@ -45,4 +43,8 @@ app-root {
     right: -24px;
     width: calc(100% + 48px);
   }
+}
+
+.margin-right-4 {
+  margin-right: 4px;
 }

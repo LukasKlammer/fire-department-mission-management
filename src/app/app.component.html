@@ -1,5 +1,30 @@
 <app-header></app-header>
+
+<mat-drawer-container autosize>
+
+  <mat-drawer #drawer mode="side">
+    <div class="nav-links">
+      <mat-icon fontIcon="home">library_add</mat-icon>
+      <a [routerLink]="['/']">alle Missionen</a>
+    </div>
+    <div class="nav-links">
+      <mat-icon fontIcon="home">notification_add</mat-icon>
+      <a [routerLink]="['/current-mission/']">aktuelle Mission</a>
+    </div>
+  </mat-drawer>
+
+
 <div class="router-container">
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
   <router-outlet></router-outlet>
 </div>
+
+</mat-drawer-container>
+
+
+
 <app-footer></app-footer>

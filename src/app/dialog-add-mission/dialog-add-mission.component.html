@@ -5,7 +5,7 @@
     <h1 mat-dialog-title>Neue Mission erstellen</h1>
     <div mat-dialog-content>
       <h2>ACHTUNG: Hier erstellst du eine neue Mission:</h2>
-      <p>Eine Mission ist beispielsweise eine Unwetter-Flächenlage, bei der viele Einsätze gleichzeitig auftreten.
+      <p>Eine Mission eine Lage, bei der viele Einsätze gleichzeitig auftreten.
         Überlege, ob du wirklich eine neue Mission anlegen möchtest oder nur einen einzelnen Einsatz bei einer
         bestehenden Mission!</p>
       <mat-form-field appearance="outline">
@@ -28,8 +28,8 @@
     </div>
     <div mat-dialog-actions>
       <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
-      <button [disabled]="isLoading" mat-raised-button color="primary" cdkFocusInitial>
-        <mat-icon fontIcon="save">save</mat-icon>
+      <button [disabled]="isLoading" mat-raised-button color="warn" cdkFocusInitial>
+        <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
         neue Mission erstellen
       </button>
     </div>
