@@ -15,6 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 import { DialogEditOperationComponent } from './dialog-edit-operation/dialog-edit-operation.component';
 import { CurrentMissionComponent } from './current-mission/current-mission.component';
 import { OperationsComponent } from './operations/operations.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { OperationsComponent } from './operations/operations.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatChipsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

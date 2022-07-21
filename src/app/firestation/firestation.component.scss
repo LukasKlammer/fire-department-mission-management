@@ -1,3 +1,19 @@
-:host {
-  width: 30%;
+h2 {
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.1);
+
+  td {
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 4px;
+    text-align: center;
+  }
+}
+
+.empty-space {
+  border: none;
 }
