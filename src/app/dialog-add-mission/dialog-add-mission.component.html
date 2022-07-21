@@ -1,9 +1,37 @@
-<p>dialog-add-mission works!</p>
-<h1 mat-dialog-title>Neue Mission erstellen</h1>
-<div mat-dialog-content>
-  <h2>ACHTUNG: Hier erstellst du eine neue Mission:</h2>
-  <p>Eine Mission ist beispielsweise eine Unwetter-Flächenlage, bei der viele Einsätze gleichzeitig auftreten. Möchtest du einen einzelnen Einsatz erstellen, dann wähle eine bereits bestehende Mission und füge den Einsatz dieser Mission hinzu!</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+<div class="dialog-container">
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+  <form (ngSubmit)="generateNewMission(contactForm)" #contactForm="ngForm">
+    <h1 mat-dialog-title>Neue Mission erstellen</h1>
+    <div mat-dialog-content>
+      <h2>ACHTUNG: Hier erstellst du eine neue Mission:</h2>
+      <p>Eine Mission ist beispielsweise eine Unwetter-Flächenlage, bei der viele Einsätze gleichzeitig auftreten.
+        Überlege, ob du wirklich eine neue Mission anlegen möchtest oder nur einen einzelnen Einsatz bei einer
+        bestehenden Mission!</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Kurzbeschreibung der Mission</mat-label>
+        <input
+          [disabled]="isLoading"
+          [(ngModel)]="mission.description"
+          name="description"
+          matInput
+          placeholder="Sturm, Unwetter, Starkregen, Katastropheneinsatz,..."
+          required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Zeitstempel (wird automatisch generiert)</mat-label>
+        <input
+          disabled
+          value="{{europeanDate}}"
+          matInput>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
+      <button [disabled]="isLoading" mat-raised-button color="primary" cdkFocusInitial>
+        <mat-icon fontIcon="save">save</mat-icon>
+        neue Mission erstellen
+      </button>
+    </div>
+  </form>
 </div>

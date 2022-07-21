@@ -25,7 +25,7 @@ export class MissionsComponent implements OnInit {
       timestamp: 1658393529,
     }];
 
-  isMissionSelected:boolean = true;
+  isMissionSelected:boolean = false;
 
   constructor(public dialog: MatDialog) { }
 

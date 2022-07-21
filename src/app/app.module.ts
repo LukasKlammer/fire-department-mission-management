@@ -21,6 +21,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { DialogAddMissionComponent } from './dialog-add-mission/dialog-add-mission.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     DragDropModule,
     MatRadioModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
