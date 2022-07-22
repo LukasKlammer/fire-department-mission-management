@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditOperationComponent } from '../dialog-edit-operation/dialog-edit-operation.component';
+import { Operation } from '../modules/operation.class';
 
 @Component({
   selector: 'app-operations',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperationsComponent implements OnInit {
 
-  constructor() { }
+
+  operations: Operation[] = [
+    new Operation(),
+    new Operation(),
+  ]
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  public openDialog() {
+    this.dialog.open(DialogEditOperationComponent);
   }
 
 }
