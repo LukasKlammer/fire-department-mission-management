@@ -4,8 +4,8 @@
   <form (ngSubmit)="saveOperation(operationForm)" #operationForm="ngForm">
 
     <div class="operation-capture-container">
-      <h1 mat-dialog-title>Einsatz-Erfassung</h1>
-      <div mat-dialog-content>
+      <div class="dialog-content">
+        <h1 mat-dialog-title>Einsatz-Erfassung</h1>
         <div class="form-row">
           <mat-form-field appearance="outline">
             <mat-label>laufende Nummer</mat-label>
@@ -16,29 +16,33 @@
             <input disabled value="{{ operation.timestamp | date : 'dd.MM.y, HH:mm:ss' }}" matInput>
           </mat-form-field>
         </div>
-        <mat-form-field appearance="outline">
-          <mat-label>Straße + Hausnummer</mat-label>
-          <input [disabled]="isLoading" [(ngModel)]="operation.address" name="address" matInput
-            placeholder="Straße + Hausnummer" required>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Ort</mat-label>
-          <input [disabled]="isLoading" [(ngModel)]="operation.city" name="city" matInput placeholder="Ort" required>
-        </mat-form-field>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Straße + Hausnummer</mat-label>
+            <input [disabled]="isLoading" [(ngModel)]="operation.address" name="address" matInput
+              placeholder="Straße + Hausnummer" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ort</mat-label>
+            <input [disabled]="isLoading" [(ngModel)]="operation.city" name="city" matInput placeholder="Ort" required>
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Anrufer / Melder</mat-label>
+            <input [disabled]="isLoading" [(ngModel)]="operation.caller" name="caller" matInput
+              placeholder="Name des Anrufers / Melders" required>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Telefonnummer</mat-label>
+            <input [disabled]="isLoading" [(ngModel)]="operation.phone" name="phone" matInput
+              placeholder="Name des Anrufers / Melders" required>
+          </mat-form-field>
+        </div>
         <mat-form-field appearance="outline">
           <mat-label>Stichwort</mat-label>
           <input [disabled]="isLoading" [(ngModel)]="operation.keyword" name="keyword" matInput
-            placeholder="Wasserschaden, Unwetter, Türöffnung, Unterstützung ..." required>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Anrufer / Melder</mat-label>
-          <input [disabled]="isLoading" [(ngModel)]="operation.keyword" name="caller" matInput
-            placeholder="Name des Anrufers / Melders" required>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Telefonnummer</mat-label>
-          <input [disabled]="isLoading" [(ngModel)]="operation.phone" name="phone" matInput
-            placeholder="Name des Anrufers / Melders" required>
+            placeholder="Wasserschaden, Unwetter, Türöffnung, Baum, Unterstützung Rettungsdienst,..." required>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Bemerkungen</mat-label>
@@ -50,32 +54,89 @@
           <input [disabled]="isLoading" [(ngModel)]="operation.calltaker" name="calltaker" matInput
             placeholder="Dein Name (Feuerwehrmann ...)" required>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill">
           <mat-label>Priorität</mat-label>
-          <textarea [disabled]="isLoading" [(ngModel)]="operation.priority" name="priority" matInput
-            placeholder="hoch, mittel, niedrig" required></textarea>
+          <mat-select [disabled]="isLoading" [(ngModel)]="operation.priority" name="priority" required>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">
+              {{ priority }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </div>
     <div class="operation-processing-container">
-      <h1 mat-dialog-title>Einsatz-Abarbeitung</h1>
-      <div mat-dialog-content>
+      <div class="dialog-content">
+        <h1 mat-dialog-title>Einsatz-Abarbeitung</h1>
+        <mat-form-field appearance="fill">
+          <mat-label>Status</mat-label>
+          <mat-select [disabled]="isLoading" [(ngModel)]="operation.status" name="priority" required>
+            <mat-option *ngFor="let stat of status" [value]="stat">
+              {{ stat }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Einsatzleiter</mat-label>
+          <input [disabled]="isLoading" [(ngModel)]="operation.chief" name="chief" matInput
+            placeholder="Einsatzleiter">
+        </mat-form-field>
+
+        <div cdkDropListGroup>
+          <div class="form-row">
+            <div class="cars-container bordered-box">
+              <h2>Fahrzeuge verfügbar</h2>
+              <mat-chip>Fahrzeug 1</mat-chip>
+              <mat-chip>Kommando</mat-chip>
+              <mat-chip>Voraus</mat-chip>
+              <mat-chip>Rüst</mat-chip>
+              <!-- <div
+              cdkDropList
+              [cdkDropListData]="items"
+              class="example-list"
+              cdkDropListSortingDisabled
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of items" cdkDrag>{{item}}</div>
+            </div> -->
+            </div>
+
+            <div class="cars-container bordered-box">
+              <h2>Fahrzeuge zugeteilt</h2>
+              <mat-chip>Strom</mat-chip>
+              <mat-chip>Fahrzeug 2</mat-chip>
+              <!-- <div
+              cdkDropList
+              [cdkDropListData]="basket"
+              class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of basket" cdkDrag>{{item}}</div>
+            </div> -->
+            </div>
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Fahrzeuge extern</mat-label>
+            <textarea [disabled]="isLoading" [(ngModel)]="operation.externalVehicles" name="externalVehicles" matInput
+              placeholder="Fahrzeuge Nachbarwehren, Rettungsdienst, Polizei..."></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Notizen</mat-label>
+            <textarea [disabled]="isLoading" [(ngModel)]="operation.notes" name="notes" matInput
+              placeholder="Fahrzeuge Nachbarwehren, Rettungsdienst, Polizei..."></textarea>
+          </mat-form-field>
+        </div>
 
 
-        
-      </div>
-      <div mat-dialog-actions>
-        <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
-        <button [disabled]="isLoading" mat-button>
-          <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
-          drucken
-        </button>
-        <button [disabled]="isLoading" mat-raised-button color="primary" cdkFocusInitial>
-          <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
-          speichern
-        </button>
+        <div mat-dialog-actions>
+          <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
+          <button [disabled]="isLoading" mat-button>
+            <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
+            drucken
+          </button>
+          <button [disabled]="isLoading" mat-raised-button color="primary" cdkFocusInitial>
+            <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
+            speichern
+          </button>
+        </div>
       </div>
     </div>
-
   </form>
 </div>

@@ -11,10 +11,10 @@ export class Operation {
   calltaker: string;
   priority: string[] = ['hoch', 'mittel', 'niedrig'];
   status: string[] = ['offen', 'läuft', 'abgeschlossen'];
+  chief: string;
   vehicles: string[];
   externalVehicles: string;
   notes: string;
-
 
 
   constructor(obj?: any) {
@@ -28,9 +28,31 @@ export class Operation {
     this.comments = obj ? obj.comments : '';
     this.calltaker = obj ? obj.calltaker : '';
     this.priority = obj ? obj.priority : '';
-    this.status = obj ? obj.status : 'offen';
+    this.status = obj ? obj.status : 'Offen';
+    this.chief = obj ? obj.chief : '';
     this.vehicles = obj ? obj.vehicles : '';
     this.externalVehicles = obj ? obj.externalVehicles : '';
     this.notes = obj ? obj.notes : '';
+  }
+
+
+  public toJSON() : any {
+    return {
+      timestamp: this.timestamp,
+      operationNumber: this.operationNumber,
+      address: this.address,
+      city: this.city,
+      keyword: this.keyword,
+      caller: this.caller,
+      phone: this.phone,
+      comments: this.comments,
+      calltaker: this.calltaker,
+      priority: this.priority,
+      status: this.status,
+      chief: this.chief,
+      vehicles: this.vehicles,
+      externalVehicles: this.externalVehicles,
+      notes: this.notes,
+    }
   }
 }

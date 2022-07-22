@@ -8,7 +8,7 @@ import { SidenavService } from '../shared/sidenav.service';
   styleUrls: ['./content-drawer.component.scss']
 })
 export class ContentDrawerComponent implements OnInit {
-  @ViewChild('sidenav') public sidenav: MatSidenav;
+  @ViewChild('sidenav') public sidenav: MatSidenav | undefined;
 
   constructor(private sideNavService: SidenavService) { }
 
@@ -18,6 +18,12 @@ export class ContentDrawerComponent implements OnInit {
         this.sidenav.toggle();
       }
     });
+  }
+
+  closeSidenav() {
+    if (this.sidenav) {
+      this.sidenav.toggle();
+    }
   }
 
 }

@@ -22,6 +22,7 @@ export class DialogAddMissionComponent implements OnInit {
     if (ngForm.submitted && ngForm.form.valid) {
       console.log('neue Mission wird erstellt: ', this.mission);
       console.log('Mission als JSON: ', this.mission.toJSON());
+      this.dialogRef.close();
 
       // ins array pushen und speichern
       // this.firestore

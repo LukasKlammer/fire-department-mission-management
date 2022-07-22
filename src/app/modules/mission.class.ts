@@ -11,7 +11,7 @@ export class Mission {
   public toJSON() : any {
     return {
       description: this.description,
-      timestamp: this.timestamp.toString(),
+      timestamp: this.timestamp,
     }
   }
 

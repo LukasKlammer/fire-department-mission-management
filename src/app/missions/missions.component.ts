@@ -36,7 +36,9 @@ export class MissionsComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(DialogAddMissionComponent);
+    this.dialog.open(DialogAddMissionComponent, {
+      disableClose: true,
+    });
   }
 
 }

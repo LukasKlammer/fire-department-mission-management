@@ -13,4 +13,5 @@ export class SidenavService {
   public toggle(): void {
     return this.sideNavToggleSubject.next(null);
   }
+  
 }

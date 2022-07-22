@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from './shared/sidenav.service';
 import { ContentDrawerComponent } from './content-drawer/content-drawer.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ContentDrawerComponent } from './content-drawer/content-drawer.componen
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent]

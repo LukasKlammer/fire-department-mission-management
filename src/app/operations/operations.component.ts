@@ -22,7 +22,11 @@ export class OperationsComponent implements OnInit {
   }
 
   public openDialog() {
-    this.dialog.open(DialogEditOperationComponent);
+    this.dialog.open(DialogEditOperationComponent, {
+      disableClose: true,
+      width: '80vw',
+      height: '80vh',
+    });
   }
 
 }
