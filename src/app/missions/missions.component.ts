@@ -10,22 +10,21 @@ import { Mission } from '../modules/mission.class';
 })
 export class MissionsComponent implements OnInit {
 
-  selectedMission: Mission = {
-    description: '',
-    timestamp: 0,
-  };
+  selectedMission: Mission = new Mission();
 
   missions: Mission[] = [
-    {
+    new Mission({
       description: '1. Flächenlage',
       timestamp: 1607110465663,
-    },
-    {
+    })
+    ,
+    new Mission({
       description: '2. Flächenlage',
       timestamp: 1607110465663,
-    }];
+    })
+  ];
 
-  isMissionSelected:boolean = false;
+  isMissionSelected: boolean = false;
 
   constructor(public dialog: MatDialog) { }
 
