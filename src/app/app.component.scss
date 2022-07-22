@@ -3,9 +3,12 @@
   flex-direction: column;
 }
 
+mat-drawer-container {
+  height: 100vh;
+}
+
 .router-container {
   padding: 12px 24px;
-  flex: 1;
 }
 
 mat-drawer {

@@ -21,6 +21,7 @@ export class SidenavService {
   }
 
   public toggle(): void {
+    console.log('toggle wird aufgerufen: ', this.sidenav);
     this.sidenav.toggle();
   }
 }
