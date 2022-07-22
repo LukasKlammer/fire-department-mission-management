@@ -1,26 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { SidenavService } from './shared/sidenav.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'fd-mission-management';
 
-  @ViewChild('drawer') public sidenav: MatSidenav;
 
-  constructor(private sidenavService: SidenavService) {
+  constructor() {
   }
-
-  ngOnInit(): void {;
-    console.log(this.sidenav);
-
-    this.sidenavService.setSidenav(this.sidenav);
-  }
-
 
 
 }

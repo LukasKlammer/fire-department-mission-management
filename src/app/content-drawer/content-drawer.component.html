@@ -1,0 +1,19 @@
+
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side">
+    <div class="nav-links">
+      <mat-icon fontIcon="home">library_add</mat-icon>
+      <a [routerLink]="['/']">alle Missionen</a>
+    </div>
+    <div class="nav-links">
+      <mat-icon fontIcon="home">notification_add</mat-icon>
+      <a [routerLink]="['/current-mission/']">aktuelle Mission</a>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+

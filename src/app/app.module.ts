@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavService } from './shared/sidenav.service';
+import { ContentDrawerComponent } from './content-drawer/content-drawer.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SidenavService } from './shared/sidenav.service';
     DialogEditOperationComponent,
     CurrentMissionComponent,
     OperationsComponent,
-    DialogAddMissionComponent
+    DialogAddMissionComponent,
+    ContentDrawerComponent
   ],
   imports: [
     BrowserModule,
