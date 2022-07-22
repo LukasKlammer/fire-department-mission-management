@@ -10,10 +10,15 @@ import { Operation } from '../modules/operation.class';
 export class DialogEditOperationComponent implements OnInit {
 
   operation: Operation = new Operation();
+  isLoading: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<DialogEditOperationComponent>) { }
 
   ngOnInit(): void {
+  }
+
+  public saveOperation(ngForm: any) {
+
   }
 
 }

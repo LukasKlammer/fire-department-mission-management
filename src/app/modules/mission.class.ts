@@ -5,7 +5,7 @@ export class Mission {
 
   constructor(obj?: any) {
     this.description = obj ? obj.description : '';
-    this.timestamp = obj ? obj.timestamp : '';
+    this.timestamp = obj ? obj.timestamp  : new Date().getTime();
   }
 
   // public toJSON() : string {

@@ -11,10 +11,8 @@ export class DialogAddMissionComponent implements OnInit {
 
   isLoading: boolean = false;
   mission: Mission = new Mission();
-  date: Date = new Date();
 
   constructor(public dialogRef: MatDialogRef<DialogAddMissionComponent>) {
-    this.mission.timestamp = this.date.getTime();
 
     // this.europeanDate = this.date.toLocaleDateString("en-US", { day: 'numeric' })+ "-"+ this.date.toLocaleDateString("en-US", { month: 'short' })+ "-" + this.date.toLocaleDateString("en-US", { year: 'numeric' }) + "   " + this.date.getHours() + ":" + this.date.getMinutes() + ":" + this.date.getSeconds() + " Uhr";
    }

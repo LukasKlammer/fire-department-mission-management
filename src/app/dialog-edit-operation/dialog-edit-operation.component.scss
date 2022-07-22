@@ -1,0 +1,21 @@
+form {
+  display: flex;
+}
+
+.operation-capture-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.operation-processing-container {
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em !important ;
+}
+
+.form-row {
+  display: flex;
+}
