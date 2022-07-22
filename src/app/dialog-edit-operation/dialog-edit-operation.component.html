@@ -85,18 +85,14 @@
           <div class="form-row">
             <div class="cars-container bordered-box">
               <h2>Fahrzeuge verfügbar</h2>
-              <mat-chip>Fahrzeug 1</mat-chip>
-              <mat-chip>Kommando</mat-chip>
-              <mat-chip>Voraus</mat-chip>
-              <mat-chip>Rüst</mat-chip>
-              <!-- <div
+              <div
               cdkDropList
-              [cdkDropListData]="items"
+              [cdkDropListData]="vehiclesService.availableVehicles"
               class="example-list"
               cdkDropListSortingDisabled
               (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let item of items" cdkDrag>{{item}}</div>
-            </div> -->
+              <mat-chip *ngFor="let vehicle of vehiclesService.availableVehicles">{{ vehicle }}</mat-chip>
+            </div>
             </div>
 
             <div class="cars-container bordered-box">
@@ -123,8 +119,6 @@
               placeholder="Fahrzeuge Nachbarwehren, Rettungsdienst, Polizei..."></textarea>
           </mat-form-field>
         </div>
-
-
         <div mat-dialog-actions>
           <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
           <button [disabled]="isLoading" mat-button>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Operation } from '../modules/operation.class';
+import { VehiclesService } from '../shared/vehicles.service';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dialog-edit-operation',
@@ -14,9 +16,11 @@ export class DialogEditOperationComponent implements OnInit {
   priorities: string[] = ['hoch', 'mittel', 'niedrig'];
   status: string[] = ['Offen', 'Läuft', 'Abgeschlossen'];
 
-  constructor(public dialogRef: MatDialogRef<DialogEditOperationComponent>) { }
+
+  constructor(public dialogRef: MatDialogRef<DialogEditOperationComponent>, public vehiclesService: VehiclesService) { }
 
   ngOnInit(): void {
+
   }
 
   public saveOperation(ngForm: any) {
@@ -36,6 +40,19 @@ export class DialogEditOperationComponent implements OnInit {
       //     this.isLoading = false;
       //     this.dialogRef.close();
       //   })
+    }
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
     }
 
   }

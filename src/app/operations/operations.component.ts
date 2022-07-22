@@ -24,8 +24,8 @@ export class OperationsComponent implements OnInit {
   public openDialog() {
     this.dialog.open(DialogEditOperationComponent, {
       disableClose: true,
-      width: '80vw',
-      height: '80vh',
+      width: '90vw',
+      height: '90vh',
     });
   }
 
