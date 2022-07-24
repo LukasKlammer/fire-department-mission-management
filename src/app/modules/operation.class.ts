@@ -12,6 +12,7 @@ export class Operation {
   priority: string[] = ['hoch', 'mittel', 'niedrig'];
   status: string[] = ['offen', 'läuft', 'abgeschlossen'];
   chief: string;
+  personal: string;
   vehicles: string[];
   externalVehicles: string;
   notes: string;
@@ -30,6 +31,7 @@ export class Operation {
     this.priority = obj ? obj.priority : '';
     this.status = obj ? obj.status : 'Offen';
     this.chief = obj ? obj.chief : '';
+    this.personal = obj ? obj.personal : '';
     this.vehicles = obj ? obj.vehicles : '';
     this.externalVehicles = obj ? obj.externalVehicles : '';
     this.notes = obj ? obj.notes : '';
@@ -50,6 +52,7 @@ export class Operation {
       priority: this.priority,
       status: this.status,
       chief: this.chief,
+      personal: this.personal,
       vehicles: this.vehicles,
       externalVehicles: this.externalVehicles,
       notes: this.notes,

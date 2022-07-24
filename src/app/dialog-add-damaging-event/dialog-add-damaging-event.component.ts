@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Mission } from '../modules/mission.class';
+import { DamagingEvent } from '../modules/damaging-event.class';
 
 @Component({
-  selector: 'app-dialog-add-mission',
-  templateUrl: './dialog-add-mission.component.html',
-  styleUrls: ['./dialog-add-mission.component.scss']
+  selector: 'app-dialog-add-damaging-event',
+  templateUrl: './dialog-add-damaging-event.component.html',
+  styleUrls: ['./dialog-add-damaging-event.component.scss']
 })
-export class DialogAddMissionComponent implements OnInit {
+export class DialogAddDamagingEventComponent implements OnInit {
 
   isLoading: boolean = false;
-  mission: Mission = new Mission();
+  damagingEvent: DamagingEvent = new DamagingEvent();
 
-  constructor(public dialogRef: MatDialogRef<DialogAddMissionComponent>) {
+  constructor(public dialogRef: MatDialogRef<DialogAddDamagingEventComponent>) {
   }
 
   ngOnInit(): void {
@@ -20,8 +20,8 @@ export class DialogAddMissionComponent implements OnInit {
 
   public generateNewMission(ngForm: any) {
     if (ngForm.submitted && ngForm.form.valid) {
-      console.log('neue Mission wird erstellt: ', this.mission);
-      console.log('Mission als JSON: ', this.mission.toJSON());
+      console.log('neue Mission wird erstellt: ', this.damagingEvent);
+      console.log('Mission als JSON: ', this.damagingEvent.toJSON());
       this.dialogRef.close();
 
       // ins array pushen und speichern

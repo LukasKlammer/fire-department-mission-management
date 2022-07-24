@@ -2,16 +2,15 @@
   <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 
   <form (ngSubmit)="generateNewMission(missionForm)" #missionForm="ngForm">
-    <h1 mat-dialog-title>ACHTUNG: Hier erstellst du eine neue Mission:</h1>
+    <h1 mat-dialog-title>ACHTUNG: Hier erstellst du ein neues Schadensereignis:</h1>
     <div mat-dialog-content>
-      <p>Eine Mission eine Lage, bei der viele Einsätze gleichzeitig auftreten.
-        Überlege, ob du wirklich eine neue Mission anlegen möchtest oder nur einen einzelnen Einsatz bei einer
-        bestehenden Mission!</p>
+      <p>Ein Schadensereignis eine Lage, bei der viele Einsätze gleichzeitig auftreten.
+        Überlege, ob du wirklich ein neues Schadensereignis anlegen möchtest oder nur einen einzelnen Einsatz bei einem bestehenden Schadensereignis!</p>
       <mat-form-field appearance="outline">
-        <mat-label>Kurzbeschreibung der Mission</mat-label>
+        <mat-label>Kurzbeschreibung des Schadensereignisses</mat-label>
         <input
           [disabled]="isLoading"
-          [(ngModel)]="mission.description"
+          [(ngModel)]="damagingEvent.description"
           name="description"
           matInput
           placeholder="Sturm, Unwetter, Starkregen, Katastropheneinsatz,..."
@@ -21,7 +20,7 @@
         <mat-label>Zeitstempel (wird automatisch generiert)</mat-label>
         <input
           disabled
-          value="{{ mission.timestamp | date : 'dd.MM.y, HH:mm:ss' }}"
+          value="{{ damagingEvent.timestamp | date : 'dd.MM.y, HH:mm:ss' }}"
           matInput>
       </mat-form-field>
     </div>
@@ -29,7 +28,7 @@
       <button [disabled]="isLoading" mat-button (click)="dialogRef.close()">abbrechen</button>
       <button [disabled]="isLoading" mat-raised-button color="warn" cdkFocusInitial>
         <mat-icon fontIcon="save" class="margin-right-4">save</mat-icon>
-        neue Mission erstellen
+        neues Schadensereignis erstellen
       </button>
     </div>
   </form>

@@ -1,4 +1,4 @@
-export class Mission {
+export class DamagingEvent {
   description: string;
   timestamp: number;
 

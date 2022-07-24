@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CurrentMissionComponent } from './current-mission/current-mission.component';
-import { MissionsComponent } from './missions/missions.component';
+import { CurrentDamagingEventComponent } from './current-damaging-event/current-damaging-event.component';
+import { DamagingEventsComponent } from './damaging-events/damaging-events.component';
 
 const routes: Routes = [
-  { path: '', component: MissionsComponent },
-  { path: 'missions', component: MissionsComponent },
-  { path: 'current-mission', component: CurrentMissionComponent },
+  { path: '', component: DamagingEventsComponent },
+  { path: 'damaging-events', component: DamagingEventsComponent },
+  { path: 'current-mission', component: CurrentDamagingEventComponent },
 ];
 
 @NgModule({
